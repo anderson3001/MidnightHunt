@@ -6,7 +6,7 @@ janela = Window(1920, 1080)
 teclado = Window.get_keyboard()
 cenario = GameImage("Sprites/MH_Background_1.png")
 mouse = Window.get_mouse()
-
+black = Sprite("Sprites/black.jpg")
 
 altura_chao = 530
 # Sprites do jogador
@@ -201,6 +201,10 @@ fase3_3chao.x = 638
 fase4 = GameImage("Sprites/MH_Fase4_chao.png")
 fase4_chao = GameImage("Sprites/fase4_chao.png")
 fase4_chao.y = janela.height - fase4_chao.height
+
+fase5 = GameImage("Sprites/MH_FaseFim_chao.jpg")
+fase5_chao = GameImage("Sprites/faseFimChao.png")
+fase5_chao.y = janela.height - fase5_chao.height
 # Configuração inicial do jogador
 player = playerR  # Sprite inicial do jogador (olhando para a direita)
 player.y = 250
@@ -575,7 +579,6 @@ tempo_acumulado = 0
 jogar = False
 while True:
     print(f"Player x = {player.x} y = {player.y}")
-
     janela.set_title("MidnightHunt")
     dt = janela.delta_time()
     tempo_acumulado += dt
@@ -602,24 +605,40 @@ while True:
         no_ar = False
 
     if player.x > 1920 and fase == fase1:
+        black.draw()
+        janela.update()
+        janela.delay(350)
         fase = fase2
         fasechao = fase2_1andar  # Define o novo chão da fase
         player.y=fase2_1andar.y-player.height
         player.x = 100
     if player.x > 1867 and fase == fase2:
+        black.draw()
+        janela.update()
+        janela.delay(350)
         fase = fase3
         fasechao = fase3_1chao  # Define o novo chão da fase
         player.y = fase3_1chao.y - player.height
         player.x = 100
     if player.x > 1920 and fase == fase3:
+        black.draw()
+        janela.update()
+        janela.delay(350)
         fase = fase4
         fasechao = fase4_chao
         player.y = fase4_chao.y - player.height
         player.x = 100
-
+    if player.x > 1920 and fase == fase4:
+        black.draw()
+        janela.update()
+        janela.delay(350)
+        fase = fase5
+        fasechao = fase5_chao
+        player.y = fase5_chao.y - player.height
+        player.x = 100
+    if fase == fase5:
+        fase5_chao.draw()
     if fase == fase4:
-        print("fase 4")
-        print(fase4_chao.y)
         fase4_chao.draw()
     if fase==fase3:
         fase3_1chao.draw()
@@ -661,6 +680,10 @@ while True:
         no_ar = False
     if player.collided(fase4_chao) and fase == fase4:
         player.y = fase4_chao.y - player.height
+        vel_y = 0
+        no_ar = False
+    if player.collided(fase5_chao) and fase == fase5:
+        player.y = fase5_chao.y - player.height
         vel_y = 0
         no_ar = False
     if teclado.key_pressed("ESC"):
@@ -733,7 +756,7 @@ while True:
                 esquivaL.x = player.x
                 esquivaL.y = player.y
                 esquivaL.draw()
-    if mouse.is_button_pressed(1) and not no_ar :
+    if mouse.is_button_pressed(1):# and not no_ar :
         estado = "atacando"
         if estado == "atacando" and direcao_atual == "direita":
             atkR.x = player.x
@@ -748,7 +771,8 @@ while True:
             atkL.update()
             ultimoAtk = 0
 
-
+    if estado == "atacando" and no_ar and not mouse.is_button_pressed(1):
+        estado = "pulando"
 
 
     if estado == "correndo":
@@ -785,7 +809,7 @@ while True:
     # Gerando inimigos de cada fase
     if fase == fase1:
         #respanw
-        if hp <1 or player.y > janela.height:
+        if hp <1 or player.y > chao.y:
             arrows = []
             player.y = 250
             player.x = janela.width / 10 - 100
