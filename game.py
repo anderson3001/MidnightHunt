@@ -197,6 +197,10 @@ fase3_2chao.y = 596
 fase3_2chao.x = 600
 fase3_3chao.y = 862
 fase3_3chao.x = 638
+
+fase4 = GameImage("Sprites/MH_Fase4_chao.png")
+fase4_chao = GameImage("Sprites/fase4_chao.png")
+fase4_chao.y = janela.height - fase4_chao.height
 # Configuração inicial do jogador
 player = playerR  # Sprite inicial do jogador (olhando para a direita)
 player.y = 250
@@ -607,6 +611,16 @@ while True:
         fasechao = fase3_1chao  # Define o novo chão da fase
         player.y = fase3_1chao.y - player.height
         player.x = 100
+    if player.x > 1920 and fase == fase3:
+        fase = fase4
+        fasechao = fase4_chao
+        player.y = fase4_chao.y - player.height
+        player.x = 100
+
+    if fase == fase4:
+        print("fase 4")
+        print(fase4_chao.y)
+        fase4_chao.draw()
     if fase==fase3:
         fase3_1chao.draw()
         fase3_2chao.draw()
@@ -645,6 +659,10 @@ while True:
         player.y = fase3_3chao.y - player.height
         vel_y = 0
         no_ar = False
+    if player.collided(fase4_chao) and fase == fase4:
+        player.y = fase4_chao.y - player.height
+        vel_y = 0
+        no_ar = False
     if teclado.key_pressed("ESC"):
         break
 
@@ -675,9 +693,6 @@ while True:
     elif direcao < 0:
         if player.x > 0:
             player.x -= velplayer * dt
-
-
-
 
         ####
     if player_d:
@@ -718,7 +733,7 @@ while True:
                 esquivaL.x = player.x
                 esquivaL.y = player.y
                 esquivaL.draw()
-    if mouse.is_button_pressed(1) and not no_ar :#and ultimoAtk > delayPlayer:
+    if mouse.is_button_pressed(1) and not no_ar :
         estado = "atacando"
         if estado == "atacando" and direcao_atual == "direita":
             atkR.x = player.x
@@ -732,10 +747,8 @@ while True:
             atkL.draw()
             atkL.update()
             ultimoAtk = 0
-    if ultimoAtk < 1:
-        ultimoAtk += dt
-    # Gravidade sendo aplicada
-    # Gravidade sendo aplicada
+
+
 
 
     if estado == "correndo":
