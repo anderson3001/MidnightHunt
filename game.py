@@ -40,7 +40,7 @@ estacaAtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
 estacaAtkR.set_sequence_time(0, 4, 100, loop=True)
 estacaAtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estacaAtkL.set_sequence_time(0, 4, 100, loop=True)
-
+estacaMorto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
 
 estaca2R = Sprite("Sprites/MH_Inimigo_estacaR.png")
 estaca2L = Sprite("Sprites/MH_Inimigo_estacaL.png")
@@ -52,6 +52,8 @@ estaca2AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
 estaca2AtkR.set_sequence_time(0, 4, 100, loop=True)
 estaca2AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca2AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca2Morto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
+
 
 estaca3R = Sprite("Sprites/MH_Inimigo_estacaR.png")
 estaca3L = Sprite("Sprites/MH_Inimigo_estacaL.png")
@@ -63,6 +65,7 @@ estaca3AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
 estaca3AtkR.set_sequence_time(0, 4, 100, loop=True)
 estaca3AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca3AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca3Morto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
 
 estaca4R = Sprite("Sprites/MH_Inimigo_estacaR.png")
 estaca4L = Sprite("Sprites/MH_Inimigo_estacaL.png")
@@ -74,6 +77,8 @@ estaca4AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
 estaca4AtkR.set_sequence_time(0, 4, 100, loop=True)
 estaca4AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca4AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca4Morto = Sprite("Sprites/MH_inimigo_estaca_deadL.png")
+
 
 estaca5R = Sprite("Sprites/MH_Inimigo_estacaR.png")
 estaca5L = Sprite("Sprites/MH_Inimigo_estacaL.png")
@@ -85,6 +90,8 @@ estaca5AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
 estaca5AtkR.set_sequence_time(0, 4, 100, loop=True)
 estaca5AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca5AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca5Morto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
+
 
 #inimigo besta
 #FASE 1
@@ -102,6 +109,7 @@ bestaReloadR = Sprite("Sprites/MH_Inimigo_Besta_reloadR.png",frames=5)
 bestaReloadR.set_sequence_time(0,5,83, loop=False)
 bestaReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
 bestaReloadL.set_sequence_time(0,5,83, loop=False)
+bestaMorto = Sprite("Sprites/MH_Inimigo_Besta_deadR.png")
 
 besta2R = Sprite("Sprites/MH_Inimigo_BestaR.png")
 besta2L = Sprite("Sprites/MH_Inimigo_BestaL.png")
@@ -117,6 +125,8 @@ besta2ReloadR = Sprite("Sprites/MH_Inimigo_Besta_reloadR.png",frames=5)
 besta2ReloadR.set_sequence_time(0,5,83, loop=False)
 besta2ReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
 besta2ReloadL.set_sequence_time(0,5,83, loop=False)
+besta2Morto = Sprite("Sprites/MH_Inimigo_Besta_deadL.png")
+
 
 besta3R = Sprite("Sprites/MH_Inimigo_BestaR.png")
 besta3L = Sprite("Sprites/MH_Inimigo_BestaL.png")
@@ -132,6 +142,8 @@ besta3ReloadR = Sprite("Sprites/MH_Inimigo_Besta_reloadR.png",frames=5)
 besta3ReloadR.set_sequence_time(0,5,83, loop=False)
 besta3ReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
 besta3ReloadL.set_sequence_time(0,5,83, loop=False)
+besta3Morto = Sprite("Sprites/MH_Inimigo_Besta_deadR.png")
+
 ####
 caixa1 = GameImage("Sprites/caixa1.png")
 caixa2 = GameImage("Sprites/caixa2.png")
@@ -472,7 +484,7 @@ def movBoss():
                     player.x += 200
                     hpBoss -= 1
                     boss.direcao = "direita"
-                elif direcao_atual != boss.direcao:
+                elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
                     hp -= 1
         elif boss.x > player.x:#boss anda para a esquerda
             if boss.collided(player):
@@ -480,7 +492,7 @@ def movBoss():
                     hpBoss -= 1
                     player.x -= 200
                     boss.direcao = "esquerda"
-                elif direcao_atual != boss.direcao:
+                elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
                     hp -= 1
 
 def verificar_colisao_caixas(player, caixa):
@@ -625,7 +637,7 @@ while True:
         player.y = fase3_1chao.y - player.height
         vel_y = 0
         no_ar = False
-    if player.collided(fase3_2chao) and fase == fase3:
+    if player.collided(fase3_2chao) and fase == fase3 and player. y < fase3_2chao.y:
         player.y = fase3_2chao.y - player.height
         vel_y = 0
         no_ar = False
@@ -645,7 +657,12 @@ while True:
     if fase==fase3:
         colidiu_coisa3 = verificar_colisao_coisas(player, coisa3)
 
-
+    if fase == fase3 and player.x > fase3_2chao.x and player.y > 630:
+        if player.x <= 640:
+            player.x += 5
+    if fase == fase3 and player.y > fase3_2chao.y  and player.x <= fase3_2chao.x:
+        if player.collided(fase3_2chao):
+            player.x -= 5
 
     player_d = teclado.key_pressed("D")
     player_a = teclado.key_pressed("A")
@@ -782,9 +799,21 @@ while True:
         elif besta.vivo:
             besta.draw()
 
+        if not estaca.vivo:
+            estacaMorto.x = estaca.x
+            estacaMorto.y = estaca.y + estaca.height - 16
+            estacaMorto.draw()
+        if not estaca2.vivo:
+            estaca2Morto.x = estaca2.x
+            estaca2Morto.y = estaca2.y + estaca.height - 16
+            estaca2Morto.draw()
+        if not besta.vivo:
+            bestaMorto.x = besta.x
+            bestaMorto.y = besta.y + besta.height- 16
+            bestaMorto.draw()
     if fase == fase2:
         #reespawn
-        if hp <1:
+        if hp < 1:
             arrows = []
             player.x = 100
             player.y = fase2_1andar.y-player.height
@@ -826,6 +855,27 @@ while True:
             movBesta(player, besta3)
         elif besta3.vivo:
             besta3.draw()
+
+        if not estaca3.vivo:
+            estaca3Morto.x = estaca3.x
+            estaca3Morto.y = estaca3.y + estaca.height - 16
+            estaca3Morto.draw()
+        if not estaca4.vivo:
+            estaca4Morto.x = estaca4.x
+            estaca4Morto.y = estaca4.y + estaca.height - 16
+            estaca4Morto.draw()
+        if not estaca5.vivo:
+            estaca5Morto.x = estaca5.x
+            estaca5Morto.y = estaca5.y + estaca.height - 16
+            estaca5Morto.draw()
+        if not besta2.vivo:
+            besta2Morto.x = besta2.x
+            besta2Morto.y = besta2.y + besta.height- 16
+            besta2Morto.draw()
+        if not besta3.vivo:
+            besta3Morto.x = besta3.x
+            besta3Morto.y = besta3.y + besta.height- 16
+            besta3Morto.draw()
     if fase == fase3:
         if hp == 0 or player.y > janela.height:
             player.x = 100
@@ -844,7 +894,5 @@ while True:
     for i in arrows:
         i.draw()
     # Atualizar a janela
-    if not boss.vivo:
-        janela.draw_text(f"FIM DE JOGO!!", janela.width/2, janela.height/2, 70, (255, 255, 255))
     janela.draw_text(f"FPS: {fps // 2}", 10, 10, 24, (255, 255, 255))
     janela.update()
