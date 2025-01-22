@@ -54,7 +54,7 @@ estaca2AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca2AtkL.set_sequence_time(0, 4, 100, loop=True)
 estaca2Morto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
 
-
+#FASE 2
 estaca3R = Sprite("Sprites/MH_Inimigo_estacaR.png")
 estaca3L = Sprite("Sprites/MH_Inimigo_estacaL.png")
 estaca3CorridaR = Sprite("Sprites/MH_Inimigo_estaca_runR.png", frames=7)
@@ -91,8 +91,30 @@ estaca5AtkR.set_sequence_time(0, 4, 100, loop=True)
 estaca5AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
 estaca5AtkL.set_sequence_time(0, 4, 100, loop=True)
 estaca5Morto = Sprite("Sprites/MH_Inimigo_estaca_deadR.png")
+#FASE 4
+estaca6R = Sprite("Sprites/MH_Inimigo_estacaR.png")
+estaca6L = Sprite("Sprites/MH_Inimigo_estacaL.png")
+estaca6CorridaR = Sprite("Sprites/MH_Inimigo_estaca_runR.png", frames=7)
+estaca6CorridaR.set_sequence_time(0, 7, 83, loop=True)
+estaca6CorridaL = Sprite("Sprites/MH_Inimigo_estaca_runL.png", frames=7)
+estaca6CorridaL.set_sequence_time(0, 7, 83, loop=True)
+estaca6AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
+estaca6AtkR.set_sequence_time(0, 4, 100, loop=True)
+estaca6AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
+estaca6AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca6Morto = Sprite("Sprites/MH_Inimigo_estaca_deadL.png")
 
-
+estaca7R = Sprite("Sprites/MH_Inimigo_estacaR.png")
+estaca7L = Sprite("Sprites/MH_Inimigo_estacaL.png")
+estaca7CorridaR = Sprite("Sprites/MH_Inimigo_estaca_runR.png", frames=7)
+estaca7CorridaR.set_sequence_time(0, 7, 83, loop=True)
+estaca7CorridaL = Sprite("Sprites/MH_Inimigo_estaca_runL.png", frames=7)
+estaca7CorridaL.set_sequence_time(0, 7, 83, loop=True)
+estaca7AtkR = Sprite("Sprites/MH_Inimigo_estaca_attackR.png", frames=4)
+estaca7AtkR.set_sequence_time(0, 4, 100, loop=True)
+estaca7AtkL = Sprite("Sprites/MH_Inimigo_estaca_atatackL.png", frames=4)
+estaca7AtkL.set_sequence_time(0, 4, 100, loop=True)
+estaca7Morto = Sprite("Sprites/MH_Inimigo_estaca_deadL.png")
 #inimigo besta
 #FASE 1
 bestaR = Sprite("Sprites/MH_Inimigo_BestaR.png")
@@ -110,7 +132,7 @@ bestaReloadR.set_sequence_time(0,5,83, loop=False)
 bestaReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
 bestaReloadL.set_sequence_time(0,5,83, loop=False)
 bestaMorto = Sprite("Sprites/MH_Inimigo_Besta_deadR.png")
-
+#FASE 2
 besta2R = Sprite("Sprites/MH_Inimigo_BestaR.png")
 besta2L = Sprite("Sprites/MH_Inimigo_BestaL.png")
 besta2CorridaR = Sprite("Sprites/MH_Inimigo_Besta_runR.png", frames=9)
@@ -143,6 +165,22 @@ besta3ReloadR.set_sequence_time(0,5,83, loop=False)
 besta3ReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
 besta3ReloadL.set_sequence_time(0,5,83, loop=False)
 besta3Morto = Sprite("Sprites/MH_Inimigo_Besta_deadR.png")
+#FASE 3
+besta4R = Sprite("Sprites/MH_Inimigo_BestaR.png")
+besta4L = Sprite("Sprites/MH_Inimigo_BestaL.png")
+besta4CorridaR = Sprite("Sprites/MH_Inimigo_Besta_runR.png", frames=9)
+besta4CorridaR.set_sequence_time(0, 9, 100, loop=True)
+besta4CorridaL = Sprite("Sprites/MH_Inimigo_Besta_runL.png", frames=9)
+besta4CorridaL.set_sequence_time(0, 9, 100, loop=True)
+besta4AtkR = Sprite("Sprites/MH_Inimigo_Besta_attackR.png", frames=3)
+besta4AtkR.set_sequence_time(0,2,100, loop=False)
+besta4AtkL = Sprite("Sprites/MH_Inimigo_Besta_attackL.png", frames=3)
+besta4AtkL.set_sequence_time(0,2,100, loop=False)
+besta4ReloadR = Sprite("Sprites/MH_Inimigo_Besta_reloadR.png",frames=5)
+besta4ReloadR.set_sequence_time(0,5,83, loop=False)
+besta4ReloadL = Sprite("Sprites/MH_Inimigo_Besta_reloadL.png",frames=5)
+besta4ReloadL.set_sequence_time(0,5,83, loop=False)
+besta4Morto = Sprite("Sprites/MH_Inimigo_Besta_deadL.png")
 
 ####
 caixa1 = GameImage("Sprites/caixa1.png")
@@ -258,6 +296,22 @@ estaca5.estado = "parado"
 estaca5.atk = False
 estaca5.ultimoAtk = 0
 estaca5.vivo = True
+#FASE 4
+estaca6 = estaca6L
+estaca6.y = fase4_chao.y - estaca.height
+estaca6.x = 912
+estaca6.estado = "parado"
+estaca6.atk = False
+estaca6.ultimoAtk = 0
+estaca6.vivo = True
+
+estaca7 = estaca7L
+estaca7.y = fase4_chao.y - estaca.height
+estaca7.x = 1612
+estaca7.estado = "parado"
+estaca7.atk = False
+estaca7.ultimoAtk = 0
+estaca7.vivo = True
 
 #BESTA DA FASE 1
 besta = bestaL
@@ -287,6 +341,15 @@ besta3.vivo = True
 besta3.ultimaFlecha = 0
 besta3.tiro = True
 
+besta4 = besta4L
+besta4.y = fase4_chao.y - besta.height
+besta4.x = 1212
+besta4.areaBesta = False
+besta4.vivo = True
+besta4.ultimaFlecha = 0
+besta4.tiro = True
+
+
 #BOSS
 bossR = Sprite("Sprites/MH_Inimigo_BossR.png")
 bossL = Sprite("Sprites/MH_Inimigo_BossL.png")
@@ -300,8 +363,36 @@ boss.x = 1600
 boss.y = 754
 boss.direcao = "esquerda"
 boss.vivo = True
-hpBoss = 5
+hpBoss = 3
 velBoss = 150
+
+#GARGULA
+gargulaR = Sprite("Sprites/MH_Inimigo_gargula_preAtkR.png")
+gargulaL = Sprite("Sprites/MH_Inimigo_gargula_preAtkL.png")
+gargulaAtkR = Sprite("Sprites/MH_Inimigo_gargula_attackR.png")
+gargulaAtkL = Sprite("Sprites/MH_Inimigo_gargula_attackL.png")
+
+gargula = gargulaL
+gargula.x = 1600
+gargula.y = 600
+gargula.direcao = "esquerda"
+gargula.vivo = True
+gargula.estado = "parado"
+hpGargula = 5
+velGargula = 250
+tempo = 0
+
+vidaFull = GameImage("Sprites/lifeFull.png")
+vidaFull.set_position(janela.width/2 - vidaFull.width/2, janela.height - 100)
+vida80 = GameImage("Sprites/life80.png")
+vida80.set_position(janela.width/2 - vidaFull.width/2, janela.height - 100)
+vida60 = GameImage("Sprites/life60.png")
+vida60.set_position(janela.width/2 - vidaFull.width/2, janela.height - 100)
+vida40 = GameImage("Sprites/life40.png")
+vida40.set_position(janela.width/2 - vidaFull.width/2, janela.height - 100)
+vida20 = GameImage("Sprites/life20.png")
+vida20.set_position(janela.width/2 - vidaFull.width/2, janela.height - 100)
+
 ####
 # Velocidade
 velplayer = 200
@@ -488,20 +579,74 @@ def movBoss():
                 boss.direcao = "esquerda"
         if boss.x < player.x:#boss anda para a esquerda
             if boss.collided(player):
-                if direcao_atual == boss.direcao and estado == "atacando":
-                    player.x += 200
-                    hpBoss -= 1
-                    boss.direcao = "direita"
-                elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
-                    hp -= 1
+                if estado != "esquiva":
+                    if direcao_atual == boss.direcao and estado == "atacando":
+                        player.x += 200
+                        hpBoss -= 1
+                        boss.direcao = "direita"
+                    elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
+                        hp -= 1
         elif boss.x > player.x:#boss anda para a esquerda
-            if boss.collided(player):
-                if direcao_atual == boss.direcao and estado == "atacando":
-                    hpBoss -= 1
-                    player.x -= 200
-                    boss.direcao = "esquerda"
-                elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
-                    hp -= 1
+            if estado != "esquiva":
+                if boss.collided(player):
+                    if direcao_atual == boss.direcao and estado == "atacando":
+                        hpBoss -= 1
+                        player.x -= 200
+                        boss.direcao = "esquerda"
+                    elif direcao_atual != boss.direcao or direcao_atual == boss.direcao and estado == "idle":
+                        hp -= 1
+
+def  movGargula():
+    global hp, hpGargula, tempo
+    if hpGargula == 0:
+        gargula.vivo = False
+    else:
+        if gargula.estado == "parado":
+            if gargula.direcao == "esquerda":
+                gargula.draw()
+            else:
+                gargulaR.x = gargula.x
+                gargulaR.y = gargula.y
+                gargulaR.draw()
+            tempo += dt
+        if tempo >= 5:
+            tempo = 0
+            gargula.estado = "atacando"
+        if gargula.estado == "atacando":
+            if gargula.direcao == "esquerda":
+                if gargula.y < 775 and gargula.x >= janela.width/2:
+                    gargula.y += 200 * dt
+                if gargula.y > 600 and gargula.x < 500:
+                    gargula.y -= 200 * dt
+                gargula.x -= velGargula * dt
+                gargulaAtkL.x = gargula.x
+                gargulaAtkL.y = gargula.y
+                gargulaAtkL.draw()
+                if gargula.x <= 280:
+                    gargula.estado = "parado"
+                    gargula.direcao = "direita"
+            else:
+                if gargula.y < 775 and gargula.x <= janela.width/2:
+                    gargula.y += 200 * dt
+                if gargula.y > 600 and gargula.x > 1380:
+                    gargula.y -= 200 * dt
+                gargula.x += velGargula * dt
+                gargulaAtkR.x = gargula.x
+                gargulaAtkR.y = gargula.y
+                gargulaAtkR.draw()
+                if gargula.x >= 1600:
+                    gargula.estado = "parado"
+                    gargula.direcao = "esquerda"
+
+    if gargula.collided(player):
+        if gargula.estado == "atacando":
+            hp -= 1
+        elif gargula.estado == "parado":
+            if estado == "atacando":
+                hpGargula -= 1
+                tempo = 3
+                player.x = janela.width/2
+
 
 def verificar_colisao_caixas(player, caixa):
     global vel_y, no_ar  # Precisamos acessar essas variáveis globais
@@ -628,6 +773,11 @@ while True:
         fasechao = fase4_chao
         player.y = fase4_chao.y - player.height
         player.x = 100
+
+    if player.x < 400 and player.y > fase3_1chao.y - player.height + 30 and fase == fase3:
+        player.y = fase3_1chao.y - player.height
+        player.x = 100
+
     if player.x > 1920 and fase == fase4:
         black.draw()
         janela.update()
@@ -687,7 +837,9 @@ while True:
         vel_y = 0
         no_ar = False
     if teclado.key_pressed("ESC"):
-        break
+        estado = "idle"
+        hp = 0
+        janela.close()#break
 
     if fase==fase2:
         colidiu_caixa1 = verificar_colisao_caixas(player, caixa1)
@@ -711,8 +863,11 @@ while True:
    # player.x += direcao * velplayer * dt
     ####
     if direcao > 0  :
-        if player.x < 1920:
+        if player.x < 1920 and fase != fase5:
             player.x += velplayer * dt
+        elif fase == fase5:
+            if player.x < 1920 - player.width:
+                player.x += velplayer * dt
     elif direcao < 0:
         if player.x > 0:
             player.x -= velplayer * dt
@@ -921,12 +1076,66 @@ while True:
             boss.y = 754
             boss.direcao = "esquerda"
             hp = 1
-            hpBoss = 5
-        if player.y > 540:
+            hpBoss = 3
+        if player.y > 540 and player.x > fase3_2chao.x:
             movBoss()
         elif boss.vivo:
             boss.draw()
+    if fase == fase4:
+        if hp == 0:
+            arrows = []
+            player.y = fase4_chao.y - player.height
+            player.x = 100
+            estaca6.y = fase4_chao.y - estaca.height
+            estaca6.x = 912
+            estaca6.vivo = True
+            estaca7.y = fase4_chao.y - estaca.height
+            estaca7.x = 1612
+            estaca7.vivo = True
+            besta4.y = fase4_chao.y - besta.height
+            besta4.x = 1212
+            besta4.vivo = True
 
+            hp = 1
+
+
+        if estaca6.x - player.x < 530 and player.x > 550:
+            movEstaca(player, estaca6)
+        elif estaca6.vivo:
+            estaca6.draw()
+        if estaca7.x - player.x <= 530 and player.x > 550:
+            movEstaca(player, estaca7)
+        elif estaca7.vivo:
+            estaca7.draw()
+        if besta4.x - player.x < 700 and player.x > 550:
+            movBesta(player, besta4)
+        elif besta4.vivo:
+            besta4.draw()
+    if fase == fase5:
+        if hp == 0:
+            player.y = fase5_chao.y - player.height
+            player.x = 10
+            gargula.x = 1600
+            gargula.y = 600
+            gargula.direcao = "esquerda"
+            gargula.vivo = True
+            gargula.estado = "parado"
+            hpGargula = 5
+            hp = 1
+        if gargula.vivo:
+            movGargula()
+        else:
+            janela.draw_text(f"FIM DE JOGO!", janela.width/2 - 250, janela.height/2 - 30, 70 , (255,255,255))
+        if hpGargula == 5:
+            vidaFull.draw()
+        elif hpGargula == 4:
+            vida80.draw()
+        elif hpGargula == 3:
+            vida60.draw()
+        elif hpGargula == 2:
+            vida40.draw()
+        elif hpGargula == 1:
+            vida20.draw()
     tiroFlecha()
     for i in arrows:
         i.draw()
